@@ -23,7 +23,7 @@ app.post('/data', async (req, res) => {
       // Save the document to the database
       await newUser.save();
   
-      res.json({ message: 'Form submitted successfully' });
+      res.status(200).json({ message: 'Form submitted successfully' });
     } catch (error) {
       console.error('Error saving to MongoDB:', error);
       res.status(500).json({ error: 'Internal Server Error' });

@@ -10,14 +10,14 @@ const userSchema = new Schema(
             type : String,
             require : true
         },
-        // email :{
-        //     type : String,
-        //     require : true
-        // },
-        // contact :{
-        //     type:Number,
-        //     require : true
-        // }
+        email :{
+            type : String,
+            require : true
+        },
+        contact :{
+            type:Number,
+            require : true
+        }
 
 },
     {timestamps:true}
