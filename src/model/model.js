@@ -23,6 +23,15 @@ const userSchema = new Schema(
             enum: ['male', 'female', 'other'],
             require : true
         },
+        subject:{
+            type : String,
+            enum : ['english','maths','physics'],
+            require : true
+        },
+        uploadResume: {
+            type: Date,
+            default: Date.now
+        }
 
 
 
