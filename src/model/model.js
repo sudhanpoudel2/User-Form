@@ -17,7 +17,14 @@ const userSchema = new Schema(
         contact :{
             type:Number,
             require : true
-        }
+        },
+        gender: {
+            type: String,
+            enum: ['male', 'female', 'other'],
+            require : true
+        },
+
+
 
 },
     {timestamps:true}
