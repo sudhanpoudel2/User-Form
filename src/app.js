@@ -12,10 +12,10 @@ app.get('/',(req,res)=>{
     res.send("hi this is sudhna");
 });
 
-app.put('/',(req,res)=>{
-  const formData = req.body;
-  console.log(formData);
-})
+// app.put('/',(req,res)=>{
+//   const formData = req.body;
+//   console.log(formData);
+// })
 
 app.post('/data', async (req, res) => {
     try {
