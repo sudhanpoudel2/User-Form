@@ -3,6 +3,8 @@ import '../src/database/db.js';
 import cors from "cors"
 import { UserModel } from './model/model.js';
 
+// npm run hi
+
 const app = express();
 app.use(cors())
 app.use(express.json());
@@ -27,7 +29,7 @@ app.get('/getUserData',async (req,res)=>{
 
 
 // Update user by ID
-app.put('/getUserData/_id', async (req, res) => {
+app.put('/updateUserProfile/:_id', async (req, res) => {
   const userId = req.params._id;
   console.log('Received userId:', userId);
   const { firstName , email } = req.body;
@@ -75,6 +77,6 @@ app.post('/data', async (req, res) => {
   });
   
 
-app.listen(process.env.PORT || 5000 , ()=>{
-    console.log(`Server is running at port ${process.env.PORT ||5000}`);
+app.listen(process.env.PORT ||5000 , ()=>{
+    console.log(`Server is running at port ${process.env.PORT |5000}`);
 })
