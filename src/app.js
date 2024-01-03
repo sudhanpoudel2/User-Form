@@ -25,10 +25,36 @@ app.get('/getUserData',async (req,res)=>{
     
 });
 
-app.put('/updateUser',(req,res)=>{
-  const formData = req.body;
-  console.log(formData);
-})
+
+// Update user by ID
+app.put('/getUserData/_id', async (req, res) => {
+  const userId = req.params._id;
+  console.log('Received userId:', userId);
+  const { firstName , email } = req.body;
+
+  try {
+    // Find the user by ID
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update the user fields
+    user.firstName = firstName;
+    user.email = email;
+
+    // Save the updated user
+    const updatedUser = await user.save();
+
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+  
+});
+
 
 app.post('/data', async (req, res) => {
     try {
