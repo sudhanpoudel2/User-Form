@@ -35,21 +35,28 @@ app.put('/updateUserProfile/:_id', async (req, res) => {
   const { firstName , email } = req.body;
 
   try {
+
+    const user = await UserModel.findByIdAndUpdate(userId, { firstName, email }, { new: true });
+
+
+    res.json(user);
+
+
     // Find the user by ID
-    const user = await UserModel.findById(userId);
+    // const user = await UserModel.findByIdAndUpdate(userId);
 
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+    // if (!user) {
+    //   return res.status(404).json({ message: 'User not found' });
+    // }
 
-    // Update the user fields
-    user.firstName = firstName;
-    user.email = email;
+    // // Update the user fields
+    // user.firstName = firstName;
+    // user.email = email;
 
-    // Save the updated user
-    const updatedUser = await user.save();
+    // // Save the updated user
+    // const updatedUser = await user.save();
 
-    res.json(updatedUser);
+    // res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error', error: error.message });
@@ -77,6 +84,6 @@ app.post('/data', async (req, res) => {
   });
   
 
-app.listen(process.env.PORT ||5000 , ()=>{
-    console.log(`Server is running at port ${process.env.PORT |5000}`);
+app.listen(process.env.PORT ||3000 , ()=>{
+    console.log(`Server is running at port ${process.env.PORT |3000}`);
 })
