@@ -9,7 +9,7 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
-app.get('/getUserData',async (req,res)=>{
+app.get('/getUserData',async (req,res)=>{ // get
     //req = send file from front to back
     //res = send file from back to front
     console.log("hello");
@@ -29,7 +29,7 @@ app.get('/getUserData',async (req,res)=>{
 
 
 // Update user by ID
-app.put('/updateUserProfile/:_id', async (req, res) => {
+app.put('/updateUserProfile/:_id', async (req, res) => { //put
   const userId = req.params._id;
   console.log('Received userId:', userId);
   const { firstName , email } = req.body;
@@ -65,7 +65,7 @@ app.put('/updateUserProfile/:_id', async (req, res) => {
 });
 
 
-app.post('/data', async (req, res) => {
+app.post('/data', async (req, res) => {  //post
     try {
       const formData = req.body;
       console.log(formData);
